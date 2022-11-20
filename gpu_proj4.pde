@@ -25,7 +25,8 @@ float blur_flag = 0;
 
 // initialize variables and load the shaders
 void setup() {
-  size(640, 640, P3D);
+  fullScreen(P3D);
+  //size(640, 640, P3D);
   frameRate(30);
   offsetX = width/2;
   offsetY = height/2;
@@ -152,5 +153,5 @@ void keyPressed() {
 }
 
 void mouseWheel(MouseEvent event) {
-  zoom += event.getAmount() * 12.0;
+  //zoom += event.getAmount() * 12.0;
 }
