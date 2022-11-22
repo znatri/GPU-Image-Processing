@@ -31,6 +31,16 @@ varying float offset;  // put your surface offset amount here
 
 void main() {
   vertTexCoord = texMatrix * vec4(texCoord, 1.0, 1.0);
-  offset = vertTexCoord.x;
-  gl_Position = transform * vertex;
+
+  // Calculate distance from centre
+  vec2 centre = vec2(0.5, 0.5);
+  vec2 st = vertTexCoord.xy;
+  float dist = distance(st, centre);
+
+  // Calculate offset, shift and new vertex
+  offset = (sin(dist * 50.0) + 1.0)/2.0;
+  vec4 shift =  vec4(normal, 0) * offset * 50.0; 
+  vec4 newVertex = vertex + shift;
+
+  gl_Position = transform * newVertex;
 }
