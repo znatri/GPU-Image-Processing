@@ -120,14 +120,27 @@ void draw() {
   // use the bumps shader
   shader(bumps_shader);
   pushMatrix();
-  translate (-300, 0, -300);
-  beginShape();
-  texture(sheep_texture);
-  vertex(50, 50, 0, 0, 0);
-  vertex(300, 50, 0, 1, 0);
-  vertex(300, 300, 0, 1, 1);
-  vertex(50, 300, 0, 0, 1);
-  endShape();
+  translate (-300, 50, -300);
+  float quadSize = 5.0;
+  float N = 50.0;
+  for (float i = 0.0; i < N; i++) {
+    for (float j = 0.0; j < N; j++) {
+        beginShape();
+        texture(sheep_texture);
+        vertex(i * quadSize, j * quadSize, 0, (i/N), (j/N));
+        vertex((i + 1.0) * quadSize, j * quadSize, 0, ((i + 1.0)/N), (j/N));
+        vertex((i + 1.0) * quadSize, (j + 1.0) * quadSize, 0, ((i + 1.0)/N), ((j + 1.0)/N));
+        vertex(i * quadSize, (j + 1.0) * quadSize, 0, (i/N), ((j + 1.0)/N));
+        endShape();
+    }
+  }
+  //beginShape();
+  //texture(sheep_texture);
+  //vertex(50, 50, 0, 0, 0);
+  //vertex(300, 50, 0, 1, 0);
+  //vertex(300, 300, 0, 1, 1);
+  //vertex(50, 300, 0, 0, 1);
+  //endShape();
   popMatrix();
 
   // use the squares shader
@@ -153,5 +166,5 @@ void keyPressed() {
 }
 
 void mouseWheel(MouseEvent event) {
-  //zoom += event.getAmount() * 12.0;
+  zoom += event.getCount() * 12.0;
 }
