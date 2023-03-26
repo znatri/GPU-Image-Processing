@@ -1,10 +1,30 @@
-# Project 4: GPU Programming
+# GPU Image Processing
 
+This project is an implementation of image processing techniques using GPU shaders in C++ and OpenGL. It demonstrates how to use fragment shaders for image manipulation tasks, such as image filtering and edge detection. The project includes a user interface to interact with the shaders and modify the image processing parameters in real-time.
 
-The purpose of this project is to use the GPU (vertex and fragment processors) to carry out various rendering tasks. You will write three short fragment programs that create various patterns and textures.  In addition, you will write one vertex program that will change the geometry of a simple surface.  Note that unlike previous assignments, this one is not divided into part A and part B.  Also unlike previous projects, you will program mostly in GLSL, and a little bit in Java (.pde files).
+## Features
 
-# Project Description
-The code that you create will take the simple examples we provide and modify them to carry out a set of tasks. Here is a list of the four tasks:
+- GPU-based image processing using OpenGL fragment shaders
+- Real-time image manipulation with user interface
+- Various image filters (e.g., Gaussian blur, Sobel edge detection)
+- Support for custom shaders
+- Image loading and saving functionality
+
+## Installation
+
+1. Download and install [OpenGL](https://www.opengl.org/) and [GLUT](https://www.opengl.org/resources/libraries/glut/) libraries for your platform.
+2. Clone this repository or download the source code.
+3. Build the project using your preferred C++ compiler and development environment.
+
+## Usage
+
+1. Run the compiled executable.
+2. The program will open a window displaying the image and a user interface for shader manipulation.
+3. Load an image file to apply the image processing techniques using the GPU shaders.
+4. Use the interface to select and adjust the filters, and observe the real-time changes on the image.
+5. Save the processed image if desired.
+
+For more information on modifying the shaders and image processing techniques, refer to the source code comments.
 
 ## Grid of Squares
 
@@ -53,9 +73,6 @@ If you want to understand how sin(z) behaves, you can check out this web page:
 
 https://www.geogebra.org/m/qtwNw524 
 
-# Provided Code
-Download the PROVIDED CODE Download PROVIDED CODE that includes a regular Processing file in Java, as well as several vertex and fragment shaders in the data folder.  **Important Note:**  The provided code is for Processing Version 3.  If you are using Processing Version 4, you will have to change the call getCount() to getAmount() at the last line of the p4_gpu.pde file.
-
 # Images: Initial and Final Results
 The first image below shows what the example code should show on the screen when you run it. If you run the provided code and do not see sheep on the left and a translucent blue card on the right, your graphics card is probably very old. If this turns out to be the case, please seek out the another computer to use.
 
@@ -76,29 +93,7 @@ Here are some close-up images of the ripples, showing how the geometry is no lon
 ![gpu_00](result_images/gpu_prog_05.jpg)
 ![gpu_00](result_images/gpu_prog_06.jpg)
 
-# Programming Suggestions
-We recommend starting this project by working on the Grid of Squares pattern sub-project.  First, try to modify the example code to make a transparent slot (alpha = 0) in the middle of the card.  Do this by making use of the x value of the texture coordinates to help you modify the alpha value.  Then, see if you can make a single un-rotated square in the middle of the card, with its edges running horizontally and vertically (not diagonally).  Next, create multiple of these squares.  Finally, figure out how to rotate your entire pattern by 45 degrees by modifying the texture coordinates before you begin to use them to make your squares.
-
-We provide example code for this project in the accompanying zip file. This example program draws four quads upright on a ground plane. Moving the mouse in the window rotates the view of this scene.  The space bar locks or unlocks the scene position, and the scroll wheel zooms in and out.
-
-You should tackle this assignment by modifying the fragment and vertex code to carry out the tasks listed above. One by one, you should modify the simple polygons that we provide into much more beautiful polygons that show off the power of GLSL programming. The key to success in programming GLSL is to make small changes to working code, and verify that each of your changes does what you expect. Do not expect to write an entire GLSL program from scratch, replace the example code, and have it work beautifully the first time. Debugging GLSL code is an art. You can't single-step through GLSL code, you can't set breakpoints, and you can't print out intermediate values. Your only form of output from GLSL programs is the resulting image you see on the screen. To debug, you must make clever use of the framebuffer to display intermediate values as pixel colors. Don't forget that pixel colors must be in the range of zero to one.
-
-There are four fragment programs, and they have names “X.frag”, where X is a word describing the task. These programs are in the sub-directory called “data”, and must remain there for the Processing program to find them. You will need to modify some of these to create the necessary fragment shaders for the four tasks. Processing does not know that these files are code, and so you cannot modify them from within the Processing development environment. You should edit them using any text editor that supports plain text files. As mentioned above, we suggest that you start by modifying square.frag for the circle example because it already shows how to modify the alpha channel (transparency). The file image_manip.frag uses an image of sheep. You should write your blur program based on this code.  Create your fractal by modifying fractal.frag.
-
-There are four examples of vertex programs, and they are called X.vert. These are also in the sub-directory “data”, and should stay there. Modify bumps.vert for the ripple creation task.
-
-# Programming Resources
-You can find details about using shaders in Processing at the following web page:
-
-    https://processing.org/tutorials/pshader/
-
-The material from the lectures and in the above Processing link should be sufficient to finish this assignment.  For those who are interested in more information, here are some additional tutorials on GLSL:
-
-    http://nehe.gamedev.net/article/glsl_an_introduction/25007/
-    http://www.lighthouse3d.com/tutorials/glsl-tutorial/
-
-Authorship Rules
-The code that you turn in entirely your own. You are allowed to talk to other members of the class and to the instructor and the TA’s about general implementation of the assignment. It is also fine to seek the help of others for general Processing/Java/GLSL programming questions. You may not, however, use code that anyone other than yourself has written. The only exception is that you should use the source code that we provide for this project. Code that is explicitly not allowed includes code taken from the Web, from github, from other students, from books, from other assignments or from any source other than yourself. You should not show your code to other students. Feel free to seek the help of the instructor and the TA's for suggestions about writing and debugging your code.
-
-# Submission
-In order to run the source code, it must be in a folder named after the main file. When submitting any assignment, leave it in this folder, zip it and submit via Canvas.  Please do not use tar or rar to turn in your files.
+## Programming Resources
+https://processing.org/tutorials/pshader/
+http://nehe.gamedev.net/article/glsl_an_introduction/25007/
+http://www.lighthouse3d.com/tutorials/glsl-tutorial/
